@@ -1,0 +1,62 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+📋 Reglas del Proyecto - Panel de Seguimiento de Equipos
+🧱 Arquitectura y Organización
+✅ Usar arquitectura feature-first: cada funcionalidad debe tener su carpeta con components, hooks, types, services, etc.
+
+✅ Crear una carpeta shared/ para utilidades, componentes comunes, constantes, íconos y estilos globales.
+
+✅ Toda lógica debe estar separada en archivos dedicados (hooks, helpers o services).
+
+🧼 Código Limpio y SOLID
+✅ Aplicar principios SOLID, especialmente SRP (Single Responsibility Principle).
+
+✅ Evitar código duplicado; extraer funciones reutilizables.
+
+✅ Nombres explícitos y descriptivos para funciones, componentes y variables.
+
+✅ Mantener funciones puras, cortas y con una sola responsabilidad.
+
+✅ Componentes deben ser funcionales, concisos y orientados a composición.
+
+🎨 UI y UX
+✅ Usar Tailwind CSS v4 con diseño responsivo por defecto (mobile-first).
+
+✅ Respetar el diseño circular/hexagonal pedido.
+
+✅ Utilizar shadcn/ui para modales y elementos de interfaz.
+
+✅ Priorizar accesibilidad (aria-*, roles, contraste, tabIndex) donde aplique.
+
+✅ Todos los textos y valores deben ser dinámicos (desde JSON/mock), nunca hardcodeados.
+
+📂 Datos y Tipado
+✅ Usar archivos .ts o .json para simular los datos.
+
+✅ Tipar estrictamente con TypeScript (type o interface para cada estructura usada).
+
+✅ Evitar any o as innecesarios.
+
+⚙️ Lógica y Estado
+✅ Extraer lógica en custom hooks (useEquipoData, useModal, etc.).
+
+✅ No usar estados innecesarios. Evitar useState cuando se puede derivar valor.
+
+✅ Mantener el mínimo necesario de lógica dentro del componente de presentación.
+
+🧪 Mantenibilidad y Escalabilidad
+✅ Todo componente debe poder escalar sin romper su interfaz o estructura.
+
+✅ Si una lógica o estilo se repite más de 2 veces, debe ir a shared/.
+
+✅ Diseñar el modal para poder reutilizarse en otras pantallas si fuera necesario.
+
+⚠️ Manejo de errores
+✅ Validar datos antes de renderizar (ej: verificar arrays con .length, valores nulos).
+
+✅ No debe haber fallos silenciosos en consola (ni warnings).
+
+- matener los nombres de los commits cortos y coherentes con todo lo hecho.
