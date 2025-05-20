@@ -9,7 +9,17 @@ export const metadata = {
   title: 'NoCountry - Panel de Seguimiento',
   description:
     'Panel de seguimiento de equipos para simulaciones laborales de NoCountry',
-  generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/svgs/frogIco.svg',
+
+    shortcut: '/svgs/frogIco.svg',
+    apple: '/svgs/frogIco.svg',
+    other: {
+      rel: 'icon',
+      url: '/svgs/frogIco.svg'
+    },
+  }
 };
 
 export default function RootLayout({

@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/shared/components/ui/dropdown-menu';
+import Image from 'next/image';
 
 export function DashboardHeader() {
   return (
@@ -21,9 +22,7 @@ export function DashboardHeader() {
       <div className='container mx-auto flex justify-between items-center'>
         <div className='text-2xl font-bold'>
           <Link href='/' className='flex items-center gap-2'>
-            <span className='text-white'>
-              N<span className='text-[#FF2D8A]'>o</span>Country
-            </span>
+            <Image src='https://cdn.prod.website-files.com/65773955177041dbf059ed20/67859e57c83aea3eecbc38c1_Logo%20Nav.svg' alt='NoCountry' width={120} height={32} />
           </Link>
         </div>
 

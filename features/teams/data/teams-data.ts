@@ -3,8 +3,8 @@ import type { Team } from '@/features/teams/types';
 export const teamsData: Team[] = [
   {
     id: 'team1',
-    name: 'Equipo Alpha',
-    project: 'Plataforma de Gestión de Proyectos',
+    name: 's21-01-t-webapp',
+    project: 'NoCountry Dashboard',
     insights: {
       messages: 473,
       participation: 85,
@@ -98,8 +98,8 @@ export const teamsData: Team[] = [
   },
   {
     id: 'team2',
-    name: 'Equipo Beta',
-    project: 'Aplicación de Comercio Electrónico',
+    name: 's21-02-t-mobile',
+    project: 'NoCountry Mobile App',
     insights: {
       messages: 512,
       participation: 88,
@@ -193,8 +193,8 @@ export const teamsData: Team[] = [
   },
   {
     id: 'team3',
-    name: 'Equipo Gamma',
-    project: 'Sistema de Gestión de Recursos Humanos',
+    name: 's21-18-t-data',
+    project: 'NoCountry Analytics Platform',
     insights: {
       messages: 495,
       participation: 82,
