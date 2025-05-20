@@ -60,12 +60,12 @@
 }
 
 /* Estilos personalizados para el fondo con grid */
-.bg-grid {
+/* .bg-grid {
   background-image: linear-gradient(to right, #1a2035 1px, transparent 1px),
     linear-gradient(to bottom, #1a2035 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: 0 0;
-}
+} */
 
 /* Efecto de brillo para los elementos */
 .glow {
