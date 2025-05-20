@@ -79,7 +79,7 @@ export function DashboardPage() {
       <main className='container mx-auto py-8 px-4'>
         <div className='flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8'>
           <div>
-            <h1 className='text-2xl font-bold bg-gradient-to-r from-[#FF2D8A] to-[#00D1FF] text-transparent bg-clip-text'>
+            <h1 className='text-lg font-bold bg-gradient-to-r from-[#FF2D8A] to-[#00D1FF] text-transparent bg-clip-text'>
               Panel de Seguimiento de Equipos
             </h1>
             <p className='text-gray-400 mt-2'>

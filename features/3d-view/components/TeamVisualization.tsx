@@ -47,7 +47,7 @@ export function TeamVisualization({
   }, [members.length]);
 
   return (
-    <div className='relative bg-[#050A1A] rounded-lg overflow-hidden border border-[#1A2035] h-[600px]'>
+    <div className='relative bg-[#050A1A] rounded-lg overflow-hidden border border-[#1A2035] h-[450px]'>
       <Canvas camera={{ position: cameraPosition, fov: 50 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={1} castShadow />
