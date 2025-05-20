@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { MapPin, Check, Star, TrendingUp } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
+import { Badge } from '@/shared/components/ui/badge';
+import { Progress } from '@/shared/components/ui/progress';
 import type { TeamMember } from '@/features/teams/types';
 import { motion } from 'framer-motion';
 

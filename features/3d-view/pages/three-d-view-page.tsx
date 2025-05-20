@@ -3,8 +3,13 @@
 import { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Text, Html } from '@react-three/drei';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Button } from '@/components/ui/button';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from '@/shared/components/ui/tabs';
+import { Button } from '@/shared/components/ui/button';
 import { BarChart2, Info, LayoutGrid, ListFilter } from 'lucide-react';
 import { TeamInsightsModal } from '@/features/teams/components/team-insights-modal';
 import { useTeams } from '@/features/teams/hooks/use-teams';
