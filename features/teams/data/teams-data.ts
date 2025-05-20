@@ -123,6 +123,29 @@ export const teamsData: Team[] = [
           adaptability: 91,
           changeResilience: 88
         }
+      },
+      // Added 6th member
+      {
+        id: 'member5b',
+        name: 'Elena Gutiérrez',
+        role: 'QA Tester',
+        avatar: '/placeholder.svg?height=80&width=80',
+        location: 'Mendoza, Argentina',
+        skills: ['Selenium', 'Jest', 'Cypress', 'Test Planning', 'Automation'],
+        age: 27,
+        experience: 3,
+        english: 'Intermedio',
+        stats: {
+          messages: 86,
+          participation: 83,
+          attendance: 90,
+          teamwork: 88,
+          communication: 89,
+          proactivity: 85,
+          problemSolving: 90,
+          adaptability: 87,
+          changeResilience: 84
+        }
       }
     ]
   },
@@ -248,6 +271,116 @@ export const teamsData: Team[] = [
           adaptability: 92,
           changeResilience: 90
         }
+      },
+      {
+        id: 'member10a',
+        name: 'Roberto Paredes',
+        role: 'QA Tester',
+        avatar: '/placeholder.svg?height=80&width=80',
+        location: 'Guatemala City, Guatemala',
+        skills: ['Appium', 'Detox', 'XCTest', 'Mobile Testing', 'Bug Tracking'],
+        age: 26,
+        experience: 3,
+        english: 'Intermedio',
+        stats: {
+          messages: 78,
+          participation: 80,
+          attendance: 87,
+          teamwork: 84,
+          communication: 88,
+          proactivity: 86,
+          problemSolving: 90,
+          adaptability: 85,
+          changeResilience: 82
+        }
+      },
+      {
+        id: 'member10b',
+        name: 'Felipe Herrera',
+        role: 'DevOps Engineer',
+        avatar: '/placeholder.svg?height=80&width=80',
+        location: 'Santiago, Chile',
+        skills: ['CI/CD', 'Docker', 'Kubernetes', 'AWS', 'Terraform'],
+        age: 30,
+        experience: 6,
+        english: 'Avanzado',
+        stats: {
+          messages: 75,
+          participation: 79,
+          attendance: 85,
+          teamwork: 86,
+          communication: 82,
+          proactivity: 90,
+          problemSolving: 91,
+          adaptability: 88,
+          changeResilience: 87
+        }
+      },
+      {
+        id: 'member10c',
+        name: 'Daniela Rojas',
+        role: 'Frontend Developer',
+        avatar: '/placeholder.svg?height=80&width=80',
+        location: 'Medellín, Colombia',
+        skills: ['React Native', 'TypeScript', 'Redux', 'Mobile UI', 'Jest'],
+        age: 27,
+        experience: 4,
+        english: 'Intermedio',
+        stats: {
+          messages: 82,
+          participation: 85,
+          attendance: 89,
+          teamwork: 90,
+          communication: 87,
+          proactivity: 84,
+          problemSolving: 85,
+          adaptability: 91,
+          changeResilience: 88
+        }
+      },
+      {
+        id: 'member10d',
+        name: 'Miguel Ángel Rivas',
+        role: 'UI Designer',
+        avatar: '/placeholder.svg?height=80&width=80',
+        location: 'Buenos Aires, Argentina',
+        skills: ['Sketch', 'Adobe XD', 'Zeplin', 'UI Systems', 'Prototyping'],
+        age: 26,
+        experience: 3,
+        english: 'Intermedio',
+        stats: {
+          messages: 76,
+          participation: 82,
+          attendance: 88,
+          teamwork: 85,
+          communication: 92,
+          proactivity: 83,
+          problemSolving: 79,
+          adaptability: 87,
+          changeResilience: 84
+        }
+      },
+      {
+        id: 'member10e',
+        name: 'Carolina Duarte',
+        role: 'Backend Developer',
+        avatar: '/placeholder.svg?height=80&width=80',
+        location: 'Bogotá, Colombia',
+        skills: ['Python', 'Flask', 'AWS', 'Microservices', 'API Design'],
+        age: 29,
+        experience: 5,
+        english: 'Avanzado',
+        stats: {
+          messages: 88,
+          participation: 84,
+          attendance: 86,
+          teamwork: 87,
+          communication: 85,
+          proactivity: 89,
+          problemSolving: 93,
+          adaptability: 88,
+          changeResilience: 85
+        }
       }
     ]
   },
@@ -264,6 +397,7 @@ export const teamsData: Team[] = [
       time: '4/6 sem'
     },
     members: [
+      // Keep only 4 members, removing the 5th member (Ricardo Flores)
       {
         id: 'member11',
         name: 'Gabriel Herrera',

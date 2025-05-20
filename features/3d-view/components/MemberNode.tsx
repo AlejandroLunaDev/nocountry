@@ -11,6 +11,7 @@ interface MemberNodeProps {
   isHovered: boolean;
   onHover: () => void;
   onHoverEnd: () => void;
+  scale?: number;
 }
 
 export function MemberNode({
@@ -20,7 +21,8 @@ export function MemberNode({
   onClick,
   isHovered,
   onHover,
-  onHoverEnd
+  onHoverEnd,
+  scale = 1
 }: MemberNodeProps) {
   return (
     <group
@@ -28,6 +30,7 @@ export function MemberNode({
       onClick={onClick}
       onPointerOver={onHover}
       onPointerOut={onHoverEnd}
+      scale={scale}
     >
       <mesh position={[0, 0, 0]} castShadow scale={isHovered ? 1.2 : 1}>
         <sphereGeometry args={[0.5, 32, 32]} />

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, Suspense } from 'react';
+import { useState, Suspense, useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -17,12 +17,38 @@ export function TeamVisualization({
   members,
   onMemberClick
 }: TeamVisualizationProps) {
-  const colors = ['#FF2D8A', '#00D1FF', '#00FF85', '#9C5FFF', '#FFB800'];
+  const colors = [
+    '#FF2D8A',
+    '#00D1FF',
+    '#00FF85',
+    '#9C5FFF',
+    '#FFB800',
+    '#FF8A00',
+    '#00B3A6',
+    '#F74E5E',
+    '#AC5CD9',
+    '#5CE0D9'
+  ];
   const [hoveredMember, setHoveredMember] = useState<string | null>(null);
+
+  // Calculate optimal radius based on number of members
+  const radius = useMemo(() => {
+    // Adjust radius based on team size
+    if (members.length <= 4) return 2.5;
+    if (members.length <= 6) return 3;
+    if (members.length <= 8) return 3.5;
+    return 4; // For larger teams (9-10 members)
+  }, [members.length]);
+
+  // Calculate optimal camera position
+  const cameraPosition = useMemo(() => {
+    const zPos = members.length <= 6 ? 10 : 12;
+    return [0, 0, zPos] as [number, number, number];
+  }, [members.length]);
 
   return (
     <div className='relative bg-[#050A1A] rounded-lg overflow-hidden border border-[#1A2035] h-[600px]'>
-      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+      <Canvas camera={{ position: cameraPosition, fov: 50 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={1} castShadow />
         <Suspense fallback={null}>
@@ -40,7 +66,6 @@ export function TeamVisualization({
             {/* Connections between members */}
             {members.map((member, i) => {
               const angle = (i / members.length) * Math.PI * 2;
-              const radius = 3;
               const x = Math.sin(angle) * radius;
               const z = Math.cos(angle) * radius;
 
@@ -74,7 +99,6 @@ export function TeamVisualization({
               const nextIndex = (i + 1) % members.length;
               const angle1 = (i / members.length) * Math.PI * 2;
               const angle2 = (nextIndex / members.length) * Math.PI * 2;
-              const radius = 3;
               const x1 = Math.sin(angle1) * radius;
               const z1 = Math.cos(angle1) * radius;
               const x2 = Math.sin(angle2) * radius;
@@ -111,9 +135,12 @@ export function TeamVisualization({
             {/* Member nodes */}
             {members.map((member, i) => {
               const angle = (i / members.length) * Math.PI * 2;
-              const radius = 3;
               const x = Math.sin(angle) * radius;
               const z = Math.cos(angle) * radius;
+
+              // Adjust node size based on team size
+              const nodeScale =
+                members.length <= 6 ? 1 : members.length <= 8 ? 0.9 : 0.8;
 
               return (
                 <MemberNode
@@ -125,6 +152,7 @@ export function TeamVisualization({
                   isHovered={hoveredMember === member.id}
                   onHover={() => setHoveredMember(member.id)}
                   onHoverEnd={() => setHoveredMember(null)}
+                  scale={nodeScale}
                 />
               );
             })}

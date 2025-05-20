@@ -115,7 +115,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
         <div className='card-gradient rounded-lg p-3 flex items-center gap-3 group hover:border-[#00D1FF]/50 card-hover-effect transition-all'>
           <div className='bg-[#1A2035] p-2 rounded-full group-hover:bg-[#00D1FF]/10 transition-colors'>
-            <Users className='text-[#00D1FF] h-5 w-5' />
+            <Users className='text-[#FF2D8A] h-5 w-5' />
           </div>
           <div>
             <p className='text-xs text-gray-400'>Participación</p>
@@ -125,7 +125,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
         <div className='card-gradient rounded-lg p-3 flex items-center gap-3 group hover:border-[#00FF85]/50 card-hover-effect transition-all'>
           <div className='bg-[#1A2035] p-2 rounded-full group-hover:bg-[#00FF85]/10 transition-colors'>
-            <Calendar className='text-[#00FF85] h-5 w-5' />
+            <Calendar className='text-[#FF2D8A] h-5 w-5' />
           </div>
           <div>
             <p className='text-xs text-gray-400'>Asistencia</p>
@@ -135,7 +135,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
         <div className='card-gradient rounded-lg p-3 flex items-center gap-3 group hover:border-[#8B5CF6]/50 card-hover-effect transition-all'>
           <div className='bg-[#1A2035] p-2 rounded-full group-hover:bg-[#8B5CF6]/10 transition-colors'>
-            <TrendingUp className='text-[#8B5CF6] h-5 w-5' />
+            <TrendingUp className='text-[#FF2D8A] h-5 w-5' />
           </div>
           <div>
             <p className='text-xs text-gray-400'>Progreso</p>
@@ -145,7 +145,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
         <div className='card-gradient rounded-lg p-3 flex items-center gap-3 group hover:border-[#FBBF24]/50 card-hover-effect transition-all'>
           <div className='bg-[#1A2035] p-2 rounded-full group-hover:bg-[#FBBF24]/10 transition-colors'>
-            <Award className='text-[#FBBF24] h-5 w-5' />
+            <Award className='text-[#FF2D8A] h-5 w-5' />
           </div>
           <div>
             <p className='text-xs text-gray-400'>Calificación</p>
@@ -155,7 +155,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
         <div className='card-gradient rounded-lg p-3 flex items-center gap-3 group hover:border-[#EC4899]/50 card-hover-effect transition-all'>
           <div className='bg-[#1A2035] p-2 rounded-full group-hover:bg-[#EC4899]/10 transition-colors'>
-            <Clock className='text-[#EC4899] h-5 w-5' />
+            <Clock className='text-[#FF2D8A] h-5 w-5' />
           </div>
           <div>
             <p className='text-xs text-gray-400'>Tiempo</p>
@@ -171,9 +171,9 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
       >
         <h3 className='font-medium'>Habilidades interpersonales del equipo</h3>
         {showSoftSkills ? (
-          <ChevronUp className='h-5 w-5 text-gray-400' />
+          <ChevronUp className='h-5 w-5 text-[#FF2D8A]' />
         ) : (
-          <ChevronDown className='h-5 w-5 text-gray-400' />
+          <ChevronDown className='h-5 w-5 text-[#FF2D8A]' />
         )}
       </button>
 
@@ -183,7 +183,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
           <div className='grid grid-cols-2 md:grid-cols-3 gap-6'>
             <div className='flex items-center gap-3'>
               <div className='bg-[#1A2035] p-2 rounded-full text-green-500'>
-                <Users className='h-5 w-5' />
+                <Users className='text-[#FF2D8A] h-5 w-5' />
               </div>
               <div>
                 <p className='text-xs text-gray-400'>Trabajo en equipo</p>
@@ -195,7 +195,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
             <div className='flex items-center gap-3'>
               <div className='bg-[#1A2035] p-2 rounded-full text-blue-500'>
-                <MessageSquare className='h-5 w-5' />
+                <MessageSquare className='text-[#FF2D8A] h-5 w-5' />
               </div>
               <div>
                 <p className='text-xs text-gray-400'>Comunicación</p>
@@ -207,7 +207,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
             <div className='flex items-center gap-3'>
               <div className='bg-[#1A2035] p-2 rounded-full text-purple-500'>
-                <Lightbulb className='h-5 w-5' />
+                <Lightbulb className='text-[#FF2D8A] h-5 w-5' />
               </div>
               <div>
                 <p className='text-xs text-gray-400'>Proactividad</p>
@@ -219,7 +219,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
             <div className='flex items-center gap-3'>
               <div className='bg-[#1A2035] p-2 rounded-full text-yellow-500'>
-                <Brain className='h-5 w-5' />
+                <Brain className='text-[#FF2D8A] h-5 w-5' />
               </div>
               <div>
                 <p className='text-xs text-gray-400'>Resolución de problemas</p>
@@ -231,7 +231,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
             <div className='flex items-center gap-3'>
               <div className='bg-[#1A2035] p-2 rounded-full text-orange-500'>
-                <RefreshCcw className='h-5 w-5' />
+                <RefreshCcw className='text-[#FF2D8A] h-5 w-5' />
               </div>
               <div>
                 <p className='text-xs text-gray-400'>Adaptabilidad</p>
@@ -243,7 +243,7 @@ export function TeamInsights({ team, insights }: TeamInsightsProps) {
 
             <div className='flex items-center gap-3'>
               <div className='bg-[#1A2035] p-2 rounded-full text-pink-500'>
-                <Heart className='h-5 w-5' />
+                <Heart className='text-[#FF2D8A] h-5 w-5' />
               </div>
               <div>
                 <p className='text-xs text-gray-400'>Tolerancia al cambio</p>
