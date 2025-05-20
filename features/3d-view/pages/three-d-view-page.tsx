@@ -20,8 +20,14 @@ export function ThreeDViewPage() {
     currentTeam,
     handleTeamSelection,
     openInsightsDialog,
-    closeInsightsDialog
+    closeInsightsDialog,
+    setIsDialogOpen
   } = useTeamSelection(teams);
+
+  // Function to open the general insights dialog without a specific member
+  const openGeneralInsightsDialog = () => {
+    setIsDialogOpen(true);
+  };
 
   return (
     <DashboardLayout>
@@ -37,7 +43,7 @@ export function ThreeDViewPage() {
             teams={teams}
             selectedTeam={selectedTeam}
             onSelectTeam={setSelectedTeam}
-            onOpenInsights={() => isDialogOpen}
+            onOpenInsights={openGeneralInsightsDialog}
             onMemberClick={openInsightsDialog}
             currentTeam={currentTeam}
           />

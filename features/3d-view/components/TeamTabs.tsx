@@ -38,7 +38,7 @@ export function TeamTabs({
     >
       <div className='relative'>
         <div className='absolute -top-[1px] left-0 right-0 h-[1px] bg-gradient-to-r from-[#FF2D8A]/0 via-[#FF2D8A] to-[#FF2D8A]/0'></div>
-        <TabsList className='w-full justify-start mb-8 bg-[#0A1428] border border-[#1A2035] overflow-x-auto'>
+        <TabsList className='w-full justify-start mb-5 h-[50px] flex items-center bg-[#0A1428] border border-[#1A2035] overflow-x-auto'>
           {teams.map(team => (
             <TabsTrigger
               key={team.id}

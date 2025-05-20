@@ -12,6 +12,13 @@ export interface TeamMember {
     messages: number;
     participation: number;
     attendance: number;
+    // Soft skills
+    teamwork?: number;
+    communication?: number;
+    proactivity?: number;
+    problemSolving?: number;
+    adaptability?: number;
+    changeResilience?: number;
   };
 }
 
@@ -26,6 +33,13 @@ export interface Team {
     progress: number;
     rating: number;
     time: string;
+    // Optional calculated soft skills (will be derived from member averages)
+    teamwork?: number;
+    communication?: number;
+    proactivity?: number;
+    problemSolving?: number;
+    adaptability?: number;
+    changeResilience?: number;
   };
   members: TeamMember[];
 }

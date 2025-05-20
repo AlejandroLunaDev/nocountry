@@ -27,7 +27,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 120,
           participation: 90,
-          attendance: 95
+          attendance: 95,
+          teamwork: 92,
+          communication: 92,
+          proactivity: 96,
+          problemSolving: 88,
+          adaptability: 90,
+          changeResilience: 90
         }
       },
       {
@@ -43,7 +49,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 98,
           participation: 88,
-          attendance: 92
+          attendance: 92,
+          teamwork: 94,
+          communication: 90,
+          proactivity: 88,
+          problemSolving: 85,
+          adaptability: 94,
+          changeResilience: 87
         }
       },
       {
@@ -59,7 +71,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 85,
           participation: 82,
-          attendance: 90
+          attendance: 90,
+          teamwork: 86,
+          communication: 88,
+          proactivity: 94,
+          problemSolving: 95,
+          adaptability: 82,
+          changeResilience: 86
         }
       },
       {
@@ -75,7 +93,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 92,
           participation: 85,
-          attendance: 95
+          attendance: 95,
+          teamwork: 91,
+          communication: 84,
+          proactivity: 89,
+          problemSolving: 93,
+          adaptability: 88,
+          changeResilience: 85
         }
       },
       {
@@ -91,7 +115,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 78,
           participation: 80,
-          attendance: 93
+          attendance: 93,
+          teamwork: 90,
+          communication: 95,
+          proactivity: 93,
+          problemSolving: 84,
+          adaptability: 91,
+          changeResilience: 88
         }
       }
     ]
@@ -122,7 +152,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 130,
           participation: 92,
-          attendance: 94
+          attendance: 94,
+          teamwork: 93,
+          communication: 96,
+          proactivity: 91,
+          problemSolving: 89,
+          adaptability: 92,
+          changeResilience: 88
         }
       },
       {
@@ -138,7 +174,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 105,
           participation: 86,
-          attendance: 90
+          attendance: 90,
+          teamwork: 88,
+          communication: 93,
+          proactivity: 85,
+          problemSolving: 82,
+          adaptability: 89,
+          changeResilience: 91
         }
       },
       {
@@ -154,7 +196,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 92,
           participation: 84,
-          attendance: 88
+          attendance: 88,
+          teamwork: 87,
+          communication: 85,
+          proactivity: 90,
+          problemSolving: 96,
+          adaptability: 86,
+          changeResilience: 84
         }
       },
       {
@@ -170,7 +218,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 98,
           participation: 89,
-          attendance: 92
+          attendance: 92,
+          teamwork: 91,
+          communication: 87,
+          proactivity: 92,
+          problemSolving: 93,
+          adaptability: 89,
+          changeResilience: 86
         }
       },
       {
@@ -186,7 +240,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 87,
           participation: 83,
-          attendance: 90
+          attendance: 90,
+          teamwork: 89,
+          communication: 91,
+          proactivity: 95,
+          problemSolving: 86,
+          adaptability: 92,
+          changeResilience: 90
         }
       }
     ]
@@ -217,7 +277,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 125,
           participation: 88,
-          attendance: 92
+          attendance: 92,
+          teamwork: 90,
+          communication: 94,
+          proactivity: 88,
+          problemSolving: 93,
+          adaptability: 87,
+          changeResilience: 85
         }
       },
       {
@@ -233,7 +299,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 102,
           participation: 85,
-          attendance: 88
+          attendance: 88,
+          teamwork: 86,
+          communication: 93,
+          proactivity: 89,
+          problemSolving: 84,
+          adaptability: 92,
+          changeResilience: 90
         }
       },
       {
@@ -249,7 +321,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 88,
           participation: 80,
-          attendance: 85
+          attendance: 85,
+          teamwork: 83,
+          communication: 81,
+          proactivity: 87,
+          problemSolving: 95,
+          adaptability: 84,
+          changeResilience: 80
         }
       },
       {
@@ -265,7 +343,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 95,
           participation: 82,
-          attendance: 90
+          attendance: 90,
+          teamwork: 88,
+          communication: 86,
+          proactivity: 90,
+          problemSolving: 91,
+          adaptability: 85,
+          changeResilience: 83
         }
       },
       {
@@ -281,7 +365,13 @@ export const teamsData: Team[] = [
         stats: {
           messages: 85,
           participation: 78,
-          attendance: 87
+          attendance: 87,
+          teamwork: 85,
+          communication: 89,
+          proactivity: 94,
+          problemSolving: 83,
+          adaptability: 88,
+          changeResilience: 90
         }
       }
     ]

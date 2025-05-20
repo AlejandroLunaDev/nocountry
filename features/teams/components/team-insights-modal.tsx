@@ -2,7 +2,14 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { MapPin, Check, X, ChevronRight } from 'lucide-react';
+import {
+  MapPin,
+  Check,
+  X,
+  ChevronRight,
+  Users,
+  UserCircle
+} from 'lucide-react';
 import { Badge } from '@/shared/components/ui/badge';
 import { Button } from '@/shared/components/ui/button';
 import { Checkbox } from '@/shared/components/ui/checkbox';
@@ -42,7 +49,21 @@ export function TeamInsightsModal({
   onTeamSelection
 }: TeamInsightsModalProps) {
   const [activeTab, setActiveTab] = useState<'profile' | 'teams'>('profile');
+  const [buyMode, setBuyMode] = useState<'teams' | 'individual'>('teams');
   const totalPrice = selectedTeams.length * 1500; // $1500 por equipo
+  const individualPrice = 500; // $500 por participante individual
+
+  // Soft skills data - Additional metrics based on Proof of Soft Skills
+  const softSkillsData = selectedMember
+    ? {
+        teamwork: selectedMember.stats.teamwork || 92,
+        communication: selectedMember.stats.communication || 92,
+        proactivity: selectedMember.stats.proactivity || 96,
+        problemSolving: selectedMember.stats.problemSolving || 88,
+        adaptability: selectedMember.stats.adaptability || 90,
+        changeResilience: selectedMember.stats.changeResilience || 90
+      }
+    : null;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -57,14 +78,6 @@ export function TeamInsightsModal({
                 <DialogTitle className='text-2xl font-bold bg-gradient-to-r from-[#FF2D8A] to-[#00D1FF] text-transparent bg-clip-text'>
                   Insights Avanzados
                 </DialogTitle>
-                <Button
-                  variant='ghost'
-                  size='icon'
-                  onClick={onClose}
-                  className='text-gray-400 hover:text-white'
-                >
-                  <X className='h-4 w-4' />
-                </Button>
               </div>
               <DialogDescription className='text-gray-400'>
                 Analiza el rendimiento y selecciona hasta 5 equipos para
@@ -95,7 +108,7 @@ export function TeamInsightsModal({
               </TabsList>
 
               <TabsContent value='profile' className='mt-0'>
-                {selectedMember && (
+                {selectedMember ? (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -174,9 +187,14 @@ export function TeamInsightsModal({
                           </div>
 
                           <div className='mt-6 flex-1'>
-                            <h4 className='font-medium mb-3'>
-                              Estadísticas de rendimiento
-                            </h4>
+                            <div className='flex justify-between items-center mb-3'>
+                              <h4 className='font-medium'>
+                                Estadísticas de rendimiento
+                              </h4>
+                              <span className='text-xs text-gray-400'>
+                                36 reseñas de coequipers
+                              </span>
+                            </div>
                             <div className='space-y-4'>
                               <div className='space-y-2'>
                                 <div className='flex justify-between'>
@@ -259,11 +277,144 @@ export function TeamInsightsModal({
                             </div>
                           </div>
 
-                          <div className='mt-6'>
+                          {/* Soft Skills Section */}
+                          {softSkillsData && (
+                            <div className='mt-6 bg-[#0A1428] rounded-lg p-4 border border-[#1A2035]'>
+                              <h4 className='font-medium mb-3'>
+                                Habilidades interpersonales
+                              </h4>
+                              <div className='grid grid-cols-2 gap-4'>
+                                <div className='space-y-1'>
+                                  <div className='flex justify-between text-sm'>
+                                    <span className='text-gray-400'>
+                                      Trabajo en equipo
+                                    </span>
+                                    <span>
+                                      {(softSkillsData.teamwork / 10).toFixed(
+                                        1
+                                      )}
+                                    </span>
+                                  </div>
+                                  <Progress
+                                    value={softSkillsData.teamwork}
+                                    className='h-2 bg-[#1A2035]'
+                                  >
+                                    <div className='h-full bg-green-500' />
+                                  </Progress>
+                                </div>
+                                <div className='space-y-1'>
+                                  <div className='flex justify-between text-sm'>
+                                    <span className='text-gray-400'>
+                                      Comunicación
+                                    </span>
+                                    <span>
+                                      {(
+                                        softSkillsData.communication / 10
+                                      ).toFixed(1)}
+                                    </span>
+                                  </div>
+                                  <Progress
+                                    value={softSkillsData.communication}
+                                    className='h-2 bg-[#1A2035]'
+                                  >
+                                    <div className='h-full bg-blue-500' />
+                                  </Progress>
+                                </div>
+                                <div className='space-y-1'>
+                                  <div className='flex justify-between text-sm'>
+                                    <span className='text-gray-400'>
+                                      Proactividad
+                                    </span>
+                                    <span>
+                                      {(
+                                        softSkillsData.proactivity / 10
+                                      ).toFixed(1)}
+                                    </span>
+                                  </div>
+                                  <Progress
+                                    value={softSkillsData.proactivity}
+                                    className='h-2 bg-[#1A2035]'
+                                  >
+                                    <div className='h-full bg-purple-500' />
+                                  </Progress>
+                                </div>
+                                <div className='space-y-1'>
+                                  <div className='flex justify-between text-sm'>
+                                    <span className='text-gray-400'>
+                                      Resolución de problemas
+                                    </span>
+                                    <span>
+                                      {(
+                                        softSkillsData.problemSolving / 10
+                                      ).toFixed(1)}
+                                    </span>
+                                  </div>
+                                  <Progress
+                                    value={softSkillsData.problemSolving}
+                                    className='h-2 bg-[#1A2035]'
+                                  >
+                                    <div className='h-full bg-yellow-500' />
+                                  </Progress>
+                                </div>
+                                <div className='space-y-1'>
+                                  <div className='flex justify-between text-sm'>
+                                    <span className='text-gray-400'>
+                                      Adaptabilidad
+                                    </span>
+                                    <span>
+                                      {(
+                                        softSkillsData.adaptability / 10
+                                      ).toFixed(1)}
+                                    </span>
+                                  </div>
+                                  <Progress
+                                    value={softSkillsData.adaptability}
+                                    className='h-2 bg-[#1A2035]'
+                                  >
+                                    <div className='h-full bg-orange-500' />
+                                  </Progress>
+                                </div>
+                                <div className='space-y-1'>
+                                  <div className='flex justify-between text-sm'>
+                                    <span className='text-gray-400'>
+                                      Tolerancia al cambio
+                                    </span>
+                                    <span>
+                                      {(
+                                        softSkillsData.changeResilience / 10
+                                      ).toFixed(1)}
+                                    </span>
+                                  </div>
+                                  <Progress
+                                    value={softSkillsData.changeResilience}
+                                    className='h-2 bg-[#1A2035]'
+                                  >
+                                    <div className='h-full bg-pink-500' />
+                                  </Progress>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          <div className='mt-6 flex gap-3'>
                             <Button
-                              onClick={() => setActiveTab('teams')}
-                              className='w-full bg-[#FF2D8A] hover:bg-[#D91A70] text-white'
+                              onClick={() => {
+                                setBuyMode('individual');
+                                setActiveTab('teams');
+                              }}
+                              className='flex-1 bg-[#00D1FF] hover:bg-[#00A0C4] text-white'
                             >
+                              <UserCircle className='mr-2 h-4 w-4' />
+                              Comprar individual
+                            </Button>
+                            <Button
+                              onClick={() => {
+                                setBuyMode('teams');
+                                setActiveTab('teams');
+                              }}
+                              className='flex-1 bg-[#FF2D8A] hover:bg-[#D91A70] text-white'
+                            >
+                              <Users className='mr-2 h-4 w-4' />
                               Seleccionar equipos
                               <ChevronRight className='ml-2 h-4 w-4' />
                             </Button>
@@ -271,6 +422,32 @@ export function TeamInsightsModal({
                         </div>
                       </div>
                     </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className='bg-[#050A1A] rounded-lg p-6 flex flex-col items-center justify-center text-center'
+                    style={{ minHeight: '400px' }}
+                  >
+                    <div className='bg-[#1A2035] p-4 rounded-full mb-4'>
+                      <UserCircle className='text-[#FF2D8A] h-12 w-12' />
+                    </div>
+                    <h3 className='text-xl font-bold mb-2'>
+                      Ningún participante seleccionado
+                    </h3>
+                    <p className='text-gray-400 max-w-md mb-6'>
+                      Para ver el perfil detallado y las estadísticas de un
+                      participante, seleccione a un miembro del equipo desde la
+                      vista principal.
+                    </p>
+                    <Button
+                      onClick={() => setActiveTab('teams')}
+                      className='bg-[#FF2D8A] hover:bg-[#D91A70] text-white'
+                    >
+                      Ver selección de equipos
+                      <ChevronRight className='ml-2 h-4 w-4' />
+                    </Button>
                   </motion.div>
                 )}
               </TabsContent>
@@ -281,92 +458,179 @@ export function TeamInsightsModal({
                   animate={{ opacity: 1, y: 0 }}
                   className='space-y-6'
                 >
-                  <div className='space-y-4'>
-                    <h4 className='font-medium'>Equipos disponibles:</h4>
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                      {teams.map(team => (
-                        <div
-                          key={team.id}
-                          className={`border rounded-lg p-4 flex items-center gap-3 cursor-pointer transition-all ${
-                            selectedTeams.includes(team.id)
-                              ? 'border-[#FF2D8A] bg-[#FF2D8A]/10'
-                              : 'border-[#1A2035] hover:border-[#FF2D8A]/50'
-                          }`}
-                          onClick={() => onTeamSelection(team.id)}
-                        >
-                          <Checkbox
-                            checked={selectedTeams.includes(team.id)}
-                            onCheckedChange={() => onTeamSelection(team.id)}
-                            className='data-[state=checked]:bg-[#FF2D8A] data-[state=checked]:border-[#FF2D8A]'
-                          />
-                          <div className='flex-1'>
-                            <div className='flex justify-between items-center'>
-                              <p className='font-medium'>{team.name}</p>
-                              <Badge
-                                variant='outline'
-                                className='bg-[#1A2035] border-none'
-                              >
-                                {team.members.length} miembros
-                              </Badge>
-                            </div>
-                            <p className='text-sm text-gray-400'>
-                              {team.project}
-                            </p>
-                            <div className='flex items-center gap-4 mt-2 text-sm'>
-                              <div className='flex items-center'>
-                                <div className='w-2 h-2 rounded-full bg-[#00FF85] mr-1'></div>
-                                <span>
-                                  {team.insights.attendance}% asistencia
-                                </span>
-                              </div>
-                              <div className='flex items-center'>
-                                <div className='w-2 h-2 rounded-full bg-[#00D1FF] mr-1'></div>
-                                <span>
-                                  {team.insights.participation}% participación
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className='bg-[#050A1A] rounded-lg p-6'>
-                    <div className='flex flex-col md:flex-row justify-between items-start md:items-center gap-4'>
-                      <div>
-                        <p className='text-gray-400'>Equipos seleccionados:</p>
-                        <div className='flex items-center gap-2'>
-                          <p className='font-bold text-2xl'>
-                            {selectedTeams.length}
-                          </p>
-                          <span className='text-gray-400'>/ 5 máximo</span>
-                        </div>
-                        <div className='flex gap-1 mt-2'>
-                          {Array.from({ length: 5 }).map((_, i) => (
+                  {buyMode === 'teams' ? (
+                    <>
+                      <div className='space-y-4'>
+                        <h4 className='font-medium'>Equipos disponibles:</h4>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                          {teams.map(team => (
                             <div
-                              key={i}
-                              className={`w-8 h-1 rounded-full ${
-                                i < selectedTeams.length
-                                  ? 'bg-[#FF2D8A]'
-                                  : 'bg-[#1A2035]'
+                              key={team.id}
+                              className={`border rounded-lg p-4 flex items-center gap-3 cursor-pointer transition-all ${
+                                selectedTeams.includes(team.id)
+                                  ? 'border-[#FF2D8A] bg-[#FF2D8A]/10'
+                                  : 'border-[#1A2035] hover:border-[#FF2D8A]/50'
                               }`}
-                            ></div>
+                              onClick={() => onTeamSelection(team.id)}
+                            >
+                              <Checkbox
+                                checked={selectedTeams.includes(team.id)}
+                                onCheckedChange={() => onTeamSelection(team.id)}
+                                className='data-[state=checked]:bg-[#FF2D8A] data-[state=checked]:border-[#FF2D8A]'
+                              />
+                              <div className='flex-1'>
+                                <div className='flex justify-between items-center'>
+                                  <p className='font-medium'>{team.name}</p>
+                                  <Badge
+                                    variant='outline'
+                                    className='bg-[#1A2035] border-none'
+                                  >
+                                    {team.members.length} miembros
+                                  </Badge>
+                                </div>
+                                <p className='text-sm text-gray-400'>
+                                  {team.project}
+                                </p>
+                                <div className='flex items-center gap-4 mt-2 text-sm'>
+                                  <div className='flex items-center'>
+                                    <div className='w-2 h-2 rounded-full bg-[#00FF85] mr-1'></div>
+                                    <span>
+                                      {team.insights.attendance}% asistencia
+                                    </span>
+                                  </div>
+                                  <div className='flex items-center'>
+                                    <div className='w-2 h-2 rounded-full bg-[#00D1FF] mr-1'></div>
+                                    <span>
+                                      {team.insights.participation}%
+                                      participación
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           ))}
                         </div>
                       </div>
 
-                      <div className='text-right'>
-                        <p className='text-gray-400'>Precio total:</p>
-                        <p className='font-bold text-3xl'>
-                          ${totalPrice.toLocaleString()}
-                        </p>
-                        <p className='text-xs text-gray-400 mt-1'>
-                          $1,500 por equipo
-                        </p>
+                      <div className='bg-[#050A1A] rounded-lg p-6'>
+                        <div className='flex flex-col md:flex-row justify-between items-start md:items-center gap-4'>
+                          <div>
+                            <p className='text-gray-400'>
+                              Equipos seleccionados:
+                            </p>
+                            <div className='flex items-center gap-2'>
+                              <p className='font-bold text-2xl'>
+                                {selectedTeams.length}
+                              </p>
+                              <span className='text-gray-400'>/ 5 máximo</span>
+                            </div>
+                            <div className='flex gap-1 mt-2'>
+                              {Array.from({ length: 5 }).map((_, i) => (
+                                <div
+                                  key={i}
+                                  className={`w-8 h-1 rounded-full ${
+                                    i < selectedTeams.length
+                                      ? 'bg-[#FF2D8A]'
+                                      : 'bg-[#1A2035]'
+                                  }`}
+                                ></div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className='text-right'>
+                            <p className='text-gray-400'>Precio total:</p>
+                            <p className='font-bold text-3xl'>
+                              ${totalPrice.toLocaleString()}
+                            </p>
+                            <p className='text-xs text-gray-400 mt-1'>
+                              $1,500 por equipo
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    // Individual purchase UI
+                    <div className='bg-[#050A1A] rounded-lg p-6'>
+                      {selectedMember && (
+                        <div className='flex flex-col md:flex-row items-center gap-6'>
+                          <div className='md:w-1/4'>
+                            <div className='relative w-32 h-32 mx-auto'>
+                              <div className='w-full h-full rounded-full overflow-hidden border-2 border-[#1A2035] group-hover:border-[#FF2D8A] transition-colors relative'>
+                                <Image
+                                  src={
+                                    selectedMember.avatar ||
+                                    '/placeholder.svg?height=80&width=80'
+                                  }
+                                  alt={selectedMember.name}
+                                  width={128}
+                                  height={128}
+                                  className='object-cover'
+                                />
+                              </div>
+                              <div className='absolute -bottom-1 -right-1 bg-[#00FF85] rounded-full p-1'>
+                                <Check className='h-3 w-3 text-black' />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className='md:w-2/4 text-center md:text-left'>
+                            <h3 className='font-bold text-xl'>
+                              {selectedMember.name}
+                            </h3>
+                            <p className='text-[#FF2D8A] font-medium'>
+                              {selectedMember.role}
+                            </p>
+                            <div className='flex items-center mt-2 text-sm text-gray-400 justify-center md:justify-start'>
+                              <MapPin className='h-4 w-4 mr-1' />
+                              {selectedMember.location}
+                            </div>
+                            <div className='flex flex-wrap gap-2 mt-3 justify-center md:justify-start'>
+                              {selectedMember.skills
+                                .slice(0, 3)
+                                .map((skill, index) => (
+                                  <Badge
+                                    key={index}
+                                    variant='outline'
+                                    className='bg-[#1A2035] border-none text-white hover:bg-[#1A2035]/80'
+                                  >
+                                    {skill}
+                                  </Badge>
+                                ))}
+                              {selectedMember.skills.length > 3 && (
+                                <Badge
+                                  variant='outline'
+                                  className='bg-[#1A2035] border-none text-white hover:bg-[#1A2035]/80'
+                                >
+                                  +{selectedMember.skills.length - 3}
+                                </Badge>
+                              )}
+                            </div>
+                          </div>
+
+                          <div className='md:w-1/4 text-center md:text-right'>
+                            <p className='text-gray-400'>Precio:</p>
+                            <p className='font-bold text-3xl'>
+                              ${individualPrice}
+                            </p>
+                            <p className='text-xs text-gray-400 mt-1'>
+                              Talento individual
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className='flex gap-3 mt-6'>
+                        <Button
+                          onClick={() => setBuyMode('teams')}
+                          className='flex-1 bg-[#1A2035] hover:bg-[#252D42] text-white'
+                        >
+                          Ver equipos completos
+                        </Button>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </motion.div>
               </TabsContent>
             </Tabs>
@@ -381,12 +645,21 @@ export function TeamInsightsModal({
           >
             Cancelar
           </Button>
-          <Button
-            className='bg-[#FF2D8A] hover:bg-[#D91A70] text-white'
-            disabled={selectedTeams.length === 0}
-          >
-            Comprar ({selectedTeams.length})
-          </Button>
+          {buyMode === 'teams' ? (
+            <Button
+              className='bg-[#FF2D8A] hover:bg-[#D91A70] text-white'
+              disabled={selectedTeams.length === 0}
+            >
+              Comprar ({selectedTeams.length})
+            </Button>
+          ) : (
+            <Button
+              className='bg-[#00D1FF] hover:bg-[#00A0C4] text-white'
+              disabled={!selectedMember}
+            >
+              Comprar (1)
+            </Button>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>
